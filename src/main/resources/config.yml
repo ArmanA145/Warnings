@@ -1,0 +1,34 @@
+# Warnings Configuration File
+logSpecificInfo: false
+# Should the specifics of a players warnings be logged into the data.yml file?
+# Includes who warned them, warning reasons, time, and addition, setting, and removal of warnings
+maxWarnings: 5
+# Maximum amount of warnings before punishment commands are used
+# If punishment commands are disabled, the players warnings will reset when they reach maximum warnings
+# Set to -1 for infinite warnings!
+usePunishmentCommands: true
+# Should the punishment commands be ran?
+punishmentCommands:
+- ban %player% Exceeding the maximum number of warnings
+# The commands ran
+resetEnabled: true
+# Should warnings ever reset?
+resetTime: 10080
+# Reset time (in minutes!)
+warningMessage:
+- "&8&l>&7&m---------------------&8&l[&c&lWarning&8&l]&7&m---------------------&8&l<"
+- "&8&l> &4Warned By: &c%warner%"
+- "&8&l> &4Warned For: &c%reason%"
+- "&8&l> &4Time of Warning: &c%time%"
+- "&8&l> &4Total Warnings: &c%warnings%&4/&c%maxwarnings%"
+- "&7&m-----------------------------------------------------"
+# Message sent to the player who has been warned
+warningInfoMessage:
+ - "&8&l[&c&l%player%&8&l]"
+ - "&8&l> &4Warnings: &c%warnings%"
+ - "&8&l> &4Logged Information:"
+ - "&8&l> &c%info%"
+# Message sent when advanced warning information is viewed (only available if logSpecificInfo is true)
+broadcastMessage:
+- "&8[&4Warning&8] &c%player% &4has been warned by &c%warner% &4for &c%reason%&4!"
+# Message broadcasted to players with the permission warnings.receivebroadcast
