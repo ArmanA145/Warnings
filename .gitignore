@@ -1,0 +1,31 @@
+# Eclipse
+/.classpath
+/.project
+/.settings
+
+# NetBeans
+/nbproject
+
+# Maven
+/build.xml
+/target
+
+# Vim
+.*.sw[a-p]
+
+# Other
+/build
+/bin
+/dist
+/manifest.mf
+/world
+
+# Mac
+/.DS_Store
+*.DS_Store
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+.idea/
