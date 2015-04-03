@@ -80,7 +80,7 @@ public class AddWarningsCommand implements CommandExecutor {
 							target.getUniqueId().toString() + ".info");
 					Date now = new Date();
 					SimpleDateFormat format = new SimpleDateFormat(
-							"dd-MM-yyyy HH:mm:ss");
+							plugin.getConfig().getString("dateFormat"));
 					l.add("(" + num + ")" + " warnings added by " + "("
 							+ sender.getName() + ")" + " at " + "("
 							+ format.format(now) + ")");
