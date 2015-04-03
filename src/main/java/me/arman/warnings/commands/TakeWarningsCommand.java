@@ -58,6 +58,11 @@ public class TakeWarningsCommand implements CommandExecutor {
 					return true;
 				}
 				int num = Integer.parseInt(args[1]);
+				if (current - num < 0) {
+					sender.sendMessage(ChatColor.RED + target.getName()
+							+ " only has " + current + " warnings!");
+					return true;
+				}
 				plugin.dFile.getConfig().set(
 						target.getUniqueId().toString() + ".username",
 						target.getName());
@@ -69,7 +74,7 @@ public class TakeWarningsCommand implements CommandExecutor {
 							target.getUniqueId().toString() + ".info");
 					Date now = new Date();
 					SimpleDateFormat format = new SimpleDateFormat(
-							"dd-MM-yyyy HH:mm:ss");
+							plugin.getConfig().getString("dateFormat"));
 					l.add("(" + num + ")" + " warnings taken by " + "("
 							+ sender.getName() + ")" + " at " + "("
 							+ format.format(now) + ")");
