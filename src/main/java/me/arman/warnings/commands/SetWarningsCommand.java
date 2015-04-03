@@ -66,7 +66,7 @@ public class SetWarningsCommand implements CommandExecutor {
 				}
 				if (num < 0) {
 					sender.sendMessage(ChatColor.RED
-							+ "You can not go below 0 warnings!");
+							+ "You can not set negative warnings!");
 					return true;
 				}
 				plugin.dFile.getConfig().set(
@@ -79,7 +79,7 @@ public class SetWarningsCommand implements CommandExecutor {
 							target.getUniqueId().toString() + ".info");
 					Date now = new Date();
 					SimpleDateFormat format = new SimpleDateFormat(
-							"dd-MM-yyyy HH:mm:ss");
+							plugin.getConfig().getString("dateFormat"));
 					l.add("Warnings set to " + "(" + num + ")" + " by " + "("
 							+ sender.getName() + ")" + " at " + "("
 							+ format.format(now) + ")");
