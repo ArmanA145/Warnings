@@ -31,13 +31,6 @@ public class WarningsCommandCategories implements CommandExecutor {
 				if (args.length >= 1) {
 					OfflinePlayer target = Bukkit.getServer().getOfflinePlayer(
 							args[0]);
-					int amount = plugin.dFile.getConfig().getInt(
-							target.getUniqueId().toString() + ".warnings.");
-					if (amount == 0) {
-						sender.sendMessage(ChatColor.GREEN + target.getName()
-								+ " has no warnings!");
-						return true;
-					}
 					ConfigurationSection info = plugin.dFile.getConfig()
 							.getConfigurationSection(
 									target.getUniqueId().toString()
@@ -74,12 +67,6 @@ public class WarningsCommandCategories implements CommandExecutor {
 				ConfigurationSection info = plugin.dFile.getConfig()
 						.getConfigurationSection(
 								p.getUniqueId().toString() + ".warnings.");
-				int amount = plugin.dFile.getConfig().getInt(
-						p.getUniqueId().toString() + ".warnings." + args[1]);
-				if (amount == 0) {
-					p.sendMessage(ChatColor.GREEN + "You have no warnings!");
-					return true;
-				}
 				if (info == null) {
 					p.sendMessage(ChatColor.GREEN + "You have no warnings!");
 					return true;
