@@ -11,8 +11,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 
-public class WarningInfoCommand implements CommandExecutor {
+public class WarningInfoCommand implements CommandExecutor, Listener {
 	static Main plugin;
 
 	public WarningInfoCommand(Main instance) {
@@ -46,14 +47,7 @@ public class WarningInfoCommand implements CommandExecutor {
 						sender.sendMessage(ChatColor
 								.translateAlternateColorCodes('&', i)
 								.replace("%info%", l.toString())
-								.replace("%player%", target.getName())
-								.replace(
-										"%warnings%",
-										Integer.toString(plugin.dFile
-												.getConfig().getInt(
-														target.getUniqueId()
-																.toString()
-																+ ".warnings"))));
+								.replace("%player%", target.getName()));
 					}
 				}
 			}
@@ -72,7 +66,11 @@ public class WarningInfoCommand implements CommandExecutor {
 										p.getUniqueId().toString() + ".info");
 						p.sendMessage(ChatColor
 								.translateAlternateColorCodes('&', i)
-								.replace("%info%", l.toString())
+								.replace(
+										"%info%",
+										l.toString().replace("[", "")
+												.replace("]", "")
+												.replace(",", "\n"))
 								.replace("%player%", p.getName())
 								.replace(
 										"%warnings%",
@@ -98,7 +96,11 @@ public class WarningInfoCommand implements CommandExecutor {
 												+ ".info");
 						p.sendMessage(ChatColor
 								.translateAlternateColorCodes('&', i)
-								.replace("%info%", l.toString())
+								.replace(
+										"%info%",
+										l.toString().replace("[", "")
+												.replace("]", "")
+												.replace(",", "\n"))
 								.replace("%player%", target.getName())
 								.replace(
 										"%warnings%",
