@@ -1,16 +1,14 @@
 name: Warnings
-version: 1.0.0
+version: 1.1.0
 main: me.arman.warnings.Main
 description: An advanced warning system for those who demand the best
 commands:
    warn:
       description: Warn someone
-      aliases: [temp]
    warnings:
       description: View warning counts
    clearwarnings:
       description: Clear warning counts
-      aliases: [temp2]
    setwarnings:
       description: Set warning counts
    addwarnings:
@@ -23,6 +21,8 @@ commands:
       description: Reload the configuration file
    warninginfo:
       description: View warning information
+   categories:
+      description: View warning categories
 permissions:
   warnings.*:
     description: Gives access to all warning commands
@@ -41,6 +41,7 @@ permissions:
       warnings.info: true
       warnings.info.others: true
       warnings.reload: true
+      warnings.categories: true
   warnings.warn:
     description: Use the warning command
     default: op
@@ -80,3 +81,6 @@ permissions:
   warnings.info.others:
     description: View others warning information
     default: op
+  warnings.categories:
+    description: View warning categories
+    default: true
