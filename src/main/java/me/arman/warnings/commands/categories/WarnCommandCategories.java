@@ -123,9 +123,6 @@ public class WarnCommandCategories implements CommandExecutor {
 							target.getUniqueId().toString() + ".info", l);
 					plugin.dFile.saveConfig();
 				}
-				int i = plugin.dFile.getConfig().getInt(
-						target.getUniqueId().toString() + ".warnings.");
-				sender.sendMessage("test" + i);
 				if (current > -1) {
 					String command = plugin
 							.getConfig()
