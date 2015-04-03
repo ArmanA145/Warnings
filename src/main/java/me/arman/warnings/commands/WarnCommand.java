@@ -1,7 +1,6 @@
 package me.arman.warnings.commands;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +35,7 @@ public class WarnCommand implements CommandExecutor {
 						+ "Usage: /warn <player> <reason>");
 				return true;
 			}
+
 			if (args.length >= 2) {
 				Player target = Bukkit.getServer().getPlayer(args[0]);
 				if (target == null) {
@@ -57,11 +57,10 @@ public class WarnCommand implements CommandExecutor {
 				for (int i = 1; i < args.length; i++) {
 					b.append(args[i] + " ");
 				}
-
 				String warnmessage = b.toString().trim();
 				Date now = new Date();
-				SimpleDateFormat format = new SimpleDateFormat(
-						"dd-MM-yyyy HH:mm:ss");
+				SimpleDateFormat format = new SimpleDateFormat(plugin
+						.getConfig().getString("dateFormat"));
 				for (String bmsg : plugin.getConfig().getStringList(
 						"broadcastMessage")) {
 					for (Player all : Bukkit.getServer().getOnlinePlayers()) {
@@ -109,6 +108,7 @@ public class WarnCommand implements CommandExecutor {
 					}
 					plugin.dFile.saveConfig();
 				}
+
 				for (String msg : plugin.getConfig().getStringList(
 						"warningMessage")) {
 					target.sendMessage(ChatColor
@@ -149,6 +149,7 @@ public class WarnCommand implements CommandExecutor {
 
 				}
 			}
+
 		}
 		return false;
 
